@@ -1,0 +1,43 @@
+
+.grid-filter.gf-outline li.active a {
+    border-color:#8a6d3b;
+    color: #8a6d3b;
+}
+.grid-filter.gf-outline li:hover a {
+    border-color:#8a6d3b;
+    color: #8a6d3b;
+}
+::selection {
+    background: #8a6d3b;
+    color: #FFF;
+    text-shadow: none;
+}
+::-moz-selection {
+    background: #8a6d3b;
+    color: #FFF;
+    text-shadow: none; }
+  
+ ::-webkit-selection {
+    background: #8a6d3b;
+    color: #FFF;
+    text-shadow: none; }
+
+#mainMenu nav > ul > li.hover-active > a, #mainMenu nav > ul > li.hover-active > span, #mainMenu nav > ul > li.current > a, #mainMenu nav > ul > li.current > span, #mainMenu nav > ul > li:hover > a, #mainMenu nav > ul > li:hover > span, #mainMenu nav > ul > li:focus > a, #mainMenu nav > ul > li:focus > span{
+    color: #8a6d3b;
+}
+.grid-active-title{
+    font-size: 40px;
+}
+.bg-half-trans{
+    background-color: rgba(0,0,0,0.1);
+}
+.btn{
+    background-color: #8a6d3b;
+    border-color: #8a6d3b;
+}
+a:hover, a:focus, a:active{
+    color: #8a6d3b;
+}
+.wb-ka{
+    word-break: keep-all;
+}
