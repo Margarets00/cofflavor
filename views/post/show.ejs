@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+     <% include ../partials/head %>
+     <link href="/css/star_rate.css"  rel="stylesheet">
+</head>
+
+<body class="device-xxs">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="" style="animation-duration: 1500ms; opacity: 1;">
+
+        <!-- Header -->
+        <header id="header" class="header-light-transparent">
+             <% include ../partials/nav %>
+        </header>
+        <!-- end: Header -->
+
+        <section id="page-content" class="sidebar-right">
+            <div class="container">
+                <div class="row">
+                    <!-- content -->
+                    <div class="content col-md-9">
+                        <!-- Blog -->
+                        <div id="blog" class="single-post">
+                            <!-- Post item-->
+                            <div-- class="post-item">
+                                <div class="post-item-wrap">
+                                    <div class="post-image">
+                                        <a href="#">
+                                            <img alt="" src="/images/<%=post.url%>">
+                                        </a>
+                                    </div>
+                                    <div class="post-item-description">
+                                        <h2><%= post.title%></h2>
+                                        <div-- class="post-meta">
+                                            <!--span class="post-meta-date"><i class="fa fa-calendar-o"></i>
+                                                <span class="date">
+                                                    <script type="text/javascript">
+                                                        var d = '2018.06.18 02:18'.split(/[.| |:]/);
+                                                        var m = new Array("January","February","March","April","May","June","July","August", "September","October","November","December");
+                                                        var year = Number(d[0]);
+                                                        var month = Number(d[1]-1);
+                                                        var day = Number(d[2]);
+                                                        var time = Number(d[3]);
+                                                        var minute = d[4];
+                                                        document.write(m[month]+" "+day+", "+year+"&nbsp;&nbsp;"+time+":"+minute);
+                                                    </script>&nbsp;&nbsp;
+                                                </span>
+                                            </span-->
+                                            <form action="/post/star/<%=post._id%>" method="post">
+                                                <span class="star-input">
+                                                        <span class="input">
+                                                            <input type="radio" name="star-input" id="p1" value="1"><label for="p1">1</label>
+                                                            <input type="radio" name="star-input" id="p2" value="2"><label for="p2">2</label>
+                                                            <input type="radio" name="star-input" id="p3" value="3"><label for="p3">3</label>
+                                                            <input type="radio" name="star-input" id="p4" value="4"><label for="p4">4</label>
+                                                            <input type="radio" name="star-input" id="p5" value="5"><label for="p5">5</label>
+                                                            <input type="radio" name="star-input" id="p6" value="6"><label for="p6">6</label>
+                                                            <input type="radio" name="star-input" id="p7" value="7"><label for="p7">7</label>
+                                                            <input type="radio" name="star-input" id="p8" value="8"><label for="p8">8</label>
+                                                            <input type="radio" name="star-input" id="p9" value="9"><label for="p9">9</label>
+                                                            <input type="radio" name="star-input" id="p10" value="10"><label for="p10">10</label>
+                                                        </span>
+                                                        <output for="star-input"><b><%=(post.star/post.starcnt).toFixed(1)%></b>점</output>
+                                                        <button class="btn btn-xs" type="submit">한번 먹을 때 마다 한번 점수주기</button>
+                                                </span>
+                                            </form>
+
+                                            <br/>
+                                            <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i><%=post.comments.length%>개의 댓글</a></span>
+                                            <span class="post-meta-category"><a href=""><i class="fa fa-tag"></i><%= post.category%></a></span>
+
+                                            
+                                            <!--div class="post-meta-share">
+                                                <a class="btn btn-xs btn-slide btn-facebook" href="#">
+                                                    <i class="fa fa-facebook"></i>
+                                                    <span>Facebook</span>
+                                                </a>
+                                                <a class="btn btn-xs btn-slide btn-twitter" href="#" data-width="100">
+                                                    <i class="fa fa-twitter"></i>
+                                                    <span>Twitter</span>
+                                                </a>
+                                                <a class="btn btn-xs btn-slide btn-instagram" href="#" data-width="118">
+                                                    <i class="fa fa-instagram"></i>
+                                                    <span>Instagram</span>
+                                                </a>
+                                                <a class="btn btn-xs btn-slide btn-googleplus" href="mailto:#" data-width="80">
+                                                    <i class="fa fa-envelope"></i>
+                                                    <span>Mail</span>
+                                                </a>
+                                            </div-->
+                                        </div>
+                                        <p><%= post.body%></p>
+                                    </div>
+                                    <!--div class="post-tags">
+                                        <a href="#">커피</a>
+                                        <a href="#">스타벅스</a>
+                                        <a href="#">카푸치노</a>
+                                        <a href="#">추천</a>
+                                    </div-->
+
+                                    <div class="comments" id="comments">
+                                        <div class="comment_number">
+                                            댓글이 <span>(<%=post.comments.length%>)</span> 개 있습니다
+                                        </div>
+                                        <div class="respond-form" id="respond">
+                                            <%if(user){%>
+                                            <form action ="/post/show/<%=id%>" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="upper" for="comment" style="display:inline-block;">댓글 내용</label>
+                                                            <button class="btn" type="submit" style="display:inline-block;">댓글 쓰기</button>
+                                                            <textarea class="form-control required" name="comment" rows="3" placeholder="내용을 입력하세요" id="comment" aria-required="true"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </form>
+                                            <%}
+                                            else{
+                                            %>
+                                            <a href="/login">로그인 후</a> 댓글을 남겨주세요.
+                                            <%}%>
+                                        </div>
+                                        <div class="comment-list">
+                                            
+                                            <% for(var i=0;i<post.comments.length;i++){%>
+                                            <!-- Comment -->
+                                            <div class="comment" id="comment-1">
+                                                <div class="text">
+                                                    <h5 class="name"><%=post.comments[i].name%></h5>
+                                                    <span class="comment_date"><%=post.comments[i].createdAt%></span>
+                                                    <%if(user&&post.comments[i].username==user.username){%><a href="/post/delete/<%=id%>/comment/<%=i%>"> <span>지우기</span></a><%}%>
+                                                    <div class="text_holder">
+                                                        <p><%=post.comments[i].comment%></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                            <!-- end: Comment -->
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: Post item-->
+                    </div>
+                    <!-- end: content -->
+
+                </div>
+            </div>
+        </section>
+
+         <!-- Footer -->
+        <footer id="footer" class="footer-light">
+            <div class="copyright-content">
+            <div class="container">
+                <div class="copyright-text text-center">© 2018 COFFLAVOR -  Responsive Multi-Purpose HTML5 Template. All Rights Reserved.<a href="http://www.inspiro-media.com" target="_blank">INSPIRO</a> </div>
+            </div>
+            </div>
+        </footer>
+        <!-- end: Footer -->
+        </div>
+    <!-- end: Wrapper -->
+
+    <!-- Go to top button -->
+    <a id="goToTop" style="bottom: 16px; opacity: 0;"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a><!--Plugins-->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/plugins.js"></script>
+
+    <!--Template functions-->
+    <script src="/js/functions.js"></script> 
+    <script src="/js/star_rate.js"></script>
+    </body>
+    </html>

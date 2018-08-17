@@ -9,7 +9,6 @@
 
     <!-- Wrapper -->
     <div id="wrapper" class="" style="animation-duration: 1500ms; opacity: 1;">
-
         <!-- Header -->
         <header id="header" class="header-light-transparent">
              <% include ../partials/nav %>
@@ -55,57 +54,53 @@
         <!-- Content -->
         <section id="page-content">
             <div class="container">
-                <!-- Portfolio Filter --><nav class="grid-filter gf-outline" data-layout="#portfolio">
+                <!-- Portfolio Filter -->
+                <nav class="grid-filter gf-outline" data-layout="#portfolio">
                     <ul>
                         <li class="active"><a href="#" data-category="*">모두보기</a></li>
-                        <li><a href="#" data-category=".pf-icons">스타벅스</a></li>
-                        <li><a href="#" data-category=".pf-illustrations">엔젤리너스</a></li>
-                        <li><a href="#" data-category=".pf-uielements">탐앤탐스</a></li>
-                        <li><a href="#" data-category=".pf-media">카페 파스쿠치</a></li>
-                        <li><a href="#" data-category=".pf-graphics">폴바셋</a></li>
+                        <li><a href="#" data-category=".pf-starbucks">스타벅스</a></li>
+                        <li><a href="#" data-category=".pf-angelinus">엔젤리너스</a></li>
+                        <li><a href="#" data-category=".pf-tomntoms">탐앤탐스</a></li>
+                        <li><a href="#" data-category=".pf-pascucci">카페 파스쿠치</a></li>
+                        <li><a href="#" data-category=".pf-paulbassett">폴바셋</a></li>
                     </ul>
                     <div class="grid-active-title">모두보기</div>
                 </nav>
                 <!-- end: Portfolio Filter -->
 
-
-                 <!-- pf-illustrations pf-media pf-icons pf-uielements pf-graphics -->
                 <!-- Portfolio -->
                 <div id="portfolio" class="grid-layout portfolio-3-columns grid-loaded" data-margin="30" style="margin: 0px -30px -30px 0px; position: relative; height: 521.312px;">
 
-
                       <!-- portfolio item -->
-                      <div class="portfolio-item shadow img-zoom pf-uielements pf-media pf-icons pf-uielements pf-graphics" style="padding: 0px 30px 30px 0px; position: absolute; left: 0px; top: 0px;">
+                        <% Post.forEach(function(Post) {%>
+                        <div class="portfolio-item shadow img-zoom pf-<%= Post.category%>" style="padding: 0px 30px 30px 0px; position: absolute; left: 0px; top: 0px;" onclick="window.location.href='/post/show/<%=Post._id%>';">
                         <div class="portfolio-item-wrap">
                             <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/66.jpg" alt=""></a>
+                                <img  src="/images/<%= Post.url%>" alt="">
                             </div>
                             <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Last Iceland Sunshine</h3>
-                                    <span>Graphics</span>
+                                <a href="/post/show/<%=Post._id%>">
+                                    <h3><%= Post.title%></h3>
+                                    <span><%=(Post.star/Post.starcnt).toFixed(1)%>점</span>
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                   
+                    <!--div class="portfolio-item shadow img-zoom pf-uielements pf-media pf-icons2 pf-uielements pf-graphics" style="padding: 0px 30px 30px 0px; position: absolute; left: 0px; top: 0px;">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <img src="/images/portfolio/66.jpg" alt="">
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="#">
+                                    <h3></h3>
+                                    <span>스타벅스</span>
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item shadow img-zoom pf-illustrations pf-media pf-icons pf-uielements pf-graphics" style="padding: 0px 30px 30px 0px; position: absolute; left: 0px; top: 260px;">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/72.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Towel World</h3>
-                                    <span>Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
+                    </div-->
 
                 </div>
                 <!-- end: Portfolio -->
@@ -129,11 +124,11 @@
 
     <!-- Go to top button -->
     <a id="goToTop" style="bottom: 16px; opacity: 0;"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a><!--Plugins-->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/plugins.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/plugins.js"></script>
 
     <!--Template functions-->
-    <script src="../js/functions.js"></script> 
+    <script src="/js/functions.js"></script> 
 
 
 

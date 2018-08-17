@@ -13,9 +13,9 @@ passport.deserializeUser(function(id,done){
 
 passport.use("local-login",
     new LocalStrategy({
-        usernameField : "username",
-        passwordField : "password",
-        passReqToCallbac : true
+            usernameField : "username",
+            passwordField : "password",
+            passReqToCallback : true
         },
         function(req, username, password, done){
             User.findOne({username:username})
@@ -28,7 +28,7 @@ passport.use("local-login",
                 } else{
                     req.flash("username",username);
                     req.flash("errors", {login:"Incorrect usename or password"});
-                    return done(null, flase);
+                    return done(null, false);
                 }
             });
         }

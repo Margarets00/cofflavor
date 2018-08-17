@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+     <% include ../partials/head %>
+</head>
+
+<body class="device-xxs">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="" style="animation-duration: 1500ms; opacity: 1;">
+
+        <!-- Header -->
+        <header id="header" class="header-light-transparent">
+             <% include ../partials/nav %>
+        </header>
+        <!-- end: Header -->
+		<section>
+		<div class="container">
+			<div class="row">
+					<div class="col-md-10 col-md-offset-1">
+						<form action="/post/new" method="post">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="upper" for="name">게시글 제목</label>
+										<input type="text" class="form-control required" name="title" placeholder="제목" id="name" aria-required="true">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="upper" for="email">이미지 파일 이름</label>
+										<input type="text" class="form-control required" name="url" placeholder="확장자 포함" id="email" aria-required="true">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="upper" for="phone">카테고리 입력</label>
+										<select name="category">
+											<option value="starbucks" selected="selected">스타벅스</option>
+											<option value="angelinus">엔젤리너스</option>
+											<option value="tomntoms">탐앤탐스</option>
+											<option value="pascucci">카페파스쿠찌</option>
+											<option value="paulbassett">폴바셋</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="upper" for="company">태그</label>
+										<input type="text" class="form-control required" name="tag" placeholder="ex) 카푸치노, 블렌디드" id="company" aria-required="true">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="upper" for="comment">내용</label>
+										<textarea class="form-control required" name="body" rows="9" placeholder="내용을 입력하세요" id="comment" aria-required="true"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group text-center">
+										<button class="btn btn-default" type="submit"><i class="fa fa-paper-plane"></i>&nbsp;글 작성하기</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			</section>
+         <!-- Footer -->
+        <footer id="footer" class="footer-light">
+            <div class="copyright-content">
+            <div class="container">
+                <div class="copyright-text text-center">© 2018 COFFLAVOR -  Responsive Multi-Purpose HTML5 Template. All Rights Reserved.<a href="http://www.inspiro-media.com" target="_blank">INSPIRO</a> </div>
+            </div>
+            </div>
+        </footer>
+        <!-- end: Footer -->
+        </div>
+    <!-- end: Wrapper -->
+
+    <!-- Go to top button -->
+    <a id="goToTop" style="bottom: 16px; opacity: 0;"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a><!--Plugins-->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/plugins.js"></script>
+
+    <!--Template functions-->
+    <script src="../js/functions.js"></script> 
