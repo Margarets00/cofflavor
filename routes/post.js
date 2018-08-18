@@ -59,11 +59,11 @@ router.post("/star/:id",isLoggedin,function(req, res){
     });
 });
 //new 글작성
-router.get("/new", function(req, res){//new를 받으면 post/form을 띄워준다 (주소는 /new)
+router.get("/new", isMinju,function(req, res){//new를 받으면 post/form을 띄워준다 (주소는 /new)
     res.render("post/form");
 });
 // create
-router.post("/new", function(req, res){
+router.post("/new",isMinju, function(req, res){
     Post.create(req.body, function(err, post){
      if(err) return res.json(err);
      res.redirect("/");
@@ -71,6 +71,15 @@ router.post("/new", function(req, res){
 });
 function isLoggedin(req,res,next){
     if(req.user){
+        next();
+    }
+    else{
+        req.flash("loginMsg","로그인 후 이용해 주세요.");
+        res.redirect("/login");
+    }
+}
+function isMinju(req,res,next){
+    if(req.user && req.user.username=="min01134"){
         next();
     }
     else{
