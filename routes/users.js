@@ -17,11 +17,17 @@ router.get("/new", function(req, res){
 // ㅇㅇ users/new로 해야 일로 옴;; 왜그런지 말해보고 아까 왜 회원가입창에단 /new만 썼는지도 말ㅇ봐 가끔 ㅆㅃ 이거랑 너무헷갈려서 
 // routes -> 에는 /users/~~~블라블라 이런애들단위로 나눌려고 만든거라서
 // useㅅㅂrs/neㅇㅜw 이렇게 ㅇ들어가게되는거임;
+
+/**
+ * 1. /users/new (GET) 의 html에서 login form 에 user가 정보 입력.
+ * 2. /users/new (POST) 로 모든 정보 전송.
+ * 3. req.body.~~~~에 form의 name속성에 알맞게 다 정보가 들어옴. <- 여기까지 ㅇㅋ? 웅..
+ * 
+ */
 router.post("/new", function(req, res){
   console.log(req.body);
   User.create(req.body, function(err, user){
-   if(err){ 
-    console.log(err);
+   if(err){
     req.flash("user", req.body);
     req.flash("errors", parseError(err)); 
     console.log(parseError(err))

@@ -44,8 +44,8 @@ app.use("/post", require("./routes/post"));
 app.use("/",require("./routes/home"));
 
 //Port setting
-app.listen(3000, function(){ 
-    console.log('Server On!');
+var port = process.env.PORT || 3000;
+app.listen(port, function(){
+  console.log('Server On!');
 });
-
 "/users/new"
