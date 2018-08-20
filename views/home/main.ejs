@@ -70,7 +70,7 @@
 
                 <!-- Portfolio -->
                 <div id="portfolio" class="grid-layout portfolio-3-columns grid-loaded" data-margin="30" style="margin: 0px -30px -30px 0px; position: relative; height: 521.312px;">
-
+                    <% Post.sort((a, b) => parseFloat(b.starcnt) - parseFloat(a.starcnt));%>
                       <!-- portfolio item -->
                         <% Post.forEach(function(Post) {%>
                         <div class="portfolio-item shadow img-zoom pf-<%= Post.category%>" style="padding: 0px 30px 30px 0px; position: absolute; left: 0px; top: 0px;" onclick="window.location.href='/post/show/<%=Post._id%>';">

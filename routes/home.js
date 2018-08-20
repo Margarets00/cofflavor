@@ -9,7 +9,7 @@ router.get("/",function(req,res){
         if(err) return console.log(err);
         console.log("post : "+ Post);
         res.render("home/main",{Post:Post});
-    });    
+    }).sort('starcnt').exec(function(err, post){});    
 });
 // Login // 2
 router.get("/login", function (req,res) {// /login 을 받으면 유저네임과 에러를 만들어두고 렌더링 해준다.

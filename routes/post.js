@@ -3,6 +3,7 @@ var router = express.Router();
 var passport= require("../config/passport");
 var Post = require("../models/Post");
 
+
 // Home
 // 모르는거 물어보기
 // post/show/5b3dee281a974a316ce63fc9
