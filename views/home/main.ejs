@@ -82,7 +82,8 @@
                             <div class="portfolio-description">
                                 <a href="/post/show/<%=Post._id%>">
                                     <h3><%= Post.title%></h3>
-                                    <span><%=(Post.star/Post.starcnt).toFixed(1)%>점</span>
+                                    <span><%=(Post.star/Post.starcnt).toFixed(1)%>점</span><br>
+                                    <span><%=Post.comments.length%>개의 평가</span>
                                 </a>
                             </div>
                             </div>
